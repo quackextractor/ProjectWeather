@@ -42,7 +42,7 @@ export function WeatherIcon({ code, size = 24, className, variant = "default" }:
   }
 
   const IconComponent = getWeatherIcon(code)
-  const iconClass = variant === "primary" ? "text-primary-foreground" : "weather-icon"
+  const iconClass = variant === "primary" ? "text-primary" : "weather-icon"
 
   return <IconComponent size={size} className={cn(iconClass, className)} />
 }

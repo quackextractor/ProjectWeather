@@ -174,7 +174,7 @@ export function CurrentWeather({ selectedDayIndex }: CurrentWeatherProps) {
             </div>
           </div>
           <div className="text-right">
-            <WeatherIcon code={weatherData.weatherCode} size={80} className="mb-2" variant="primary" />
+            <WeatherIcon code={weatherData.weatherCode} size={80} className="mb-2 weather-icon" variant="default" />
           </div>
         </div>
 
