@@ -1,0 +1,320 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+
+    /* Weather-specific theme variables */
+    --weather-icon: 221.2 83.2% 53.3%;
+    --weather-bg-from: 214 100% 97%;
+    --weather-bg-to: 221 83% 95%;
+    --weather-card-accent: 210 40% 96%;
+
+    /* Chart colors */
+    --chart-1: 221.2 83.2% 53.3%;
+    --chart-2: 215.4 16.3% 46.9%;
+    --chart-3: 199 89% 48%;
+    --chart-4: 24 95% 53%;
+    --chart-5: 142 76% 36%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+
+    /* Weather-specific theme variables for dark mode */
+    --weather-icon: 217.2 91.2% 59.8%;
+    --weather-bg-from: 222.2 84% 4.9%;
+    --weather-bg-to: 217.2 32.6% 17.5%;
+    --weather-card-accent: 217.2 32.6% 17.5%;
+
+    /* Chart colors for dark mode */
+    --chart-1: 217.2 91.2% 59.8%;
+    --chart-2: 215 20.2% 65.1%;
+    --chart-3: 199 89% 48%;
+    --chart-4: 24 95% 53%;
+    --chart-5: 142 76% 36%;
+  }
+
+  /* Theme preset classes */
+  .theme-default {
+    --primary: 221.2 83.2% 53.3%;
+    --weather-icon: 221.2 83.2% 53.3%;
+    --weather-bg-from: 214 100% 97%;
+    --weather-bg-to: 221 83% 95%;
+    --weather-card-accent: 210 40% 96%;
+  }
+
+  .theme-ocean {
+    --primary: 199 89% 48%;
+    --weather-icon: 199 89% 48%;
+    --weather-bg-from: 196 100% 97%;
+    --weather-bg-to: 199 89% 95%;
+    --weather-card-accent: 196 75% 88%;
+  }
+
+  .theme-sunset {
+    --primary: 24 95% 53%;
+    --weather-icon: 24 95% 53%;
+    --weather-bg-from: 33 100% 97%;
+    --weather-bg-to: 24 95% 95%;
+    --weather-card-accent: 33 100% 88%;
+  }
+
+  /* Dark mode overrides for theme presets */
+  .dark.theme-default {
+    --weather-bg-from: 222.2 84% 4.9%;
+    --weather-bg-to: 217.2 32.6% 17.5%;
+    --weather-card-accent: 217.2 32.6% 17.5%;
+  }
+
+  .dark.theme-ocean {
+    --weather-bg-from: 222.2 84% 4.9%;
+    --weather-bg-to: 217.2 32.6% 17.5%;
+    --weather-card-accent: 217.2 32.6% 17.5%;
+  }
+
+  .dark.theme-sunset {
+    --weather-bg-from: 222.2 84% 4.9%;
+    --weather-bg-to: 217.2 32.6% 17.5%;
+    --weather-card-accent: 217.2 32.6% 17.5%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Weather-specific styling with proper CSS variable usage */
+.weather-background {
+  background: linear-gradient(135deg, hsl(var(--weather-bg-from)), hsl(var(--weather-bg-to)));
+  min-height: 100vh;
+  transition: background 0.3s ease-in-out;
+}
+
+.weather-card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--card-foreground));
+  transition: all 0.2s ease-in-out;
+}
+
+.weather-card-accent {
+  background: hsl(var(--weather-card-accent));
+  color: hsl(var(--accent-foreground));
+  transition: background-color 0.2s ease-in-out;
+}
+
+.weather-icon {
+  color: hsl(var(--weather-icon));
+  transition: color 0.2s ease-in-out;
+}
+
+.weather-primary-icon {
+  color: hsl(var(--primary));
+  transition: color 0.2s ease-in-out;
+}
+
+.theme-accent-bg {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  transition: all 0.2s ease-in-out;
+}
+
+/* Enhanced scrollbar styling */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--muted-foreground)) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--muted-foreground));
+  border-radius: 4px;
+  border: 2px solid hsl(var(--muted));
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--foreground) / 0.7);
+}
+
+.scrollbar-thin::-webkit-scrollbar-corner {
+  background: hsl(var(--muted));
+}
+
+/* Animation improvements */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Weather card hover effects */
+.weather-card-hover {
+  transition: all 0.2s ease-out;
+}
+
+.weather-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px hsl(var(--foreground) / 0.1), 0 10px 10px -5px hsl(var(--foreground) / 0.04);
+}
+
+/* Theme-aware button styles */
+.theme-button {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  transition: all 0.2s ease-in-out;
+}
+
+.theme-button:hover {
+  background: hsl(var(--primary) / 0.9);
+}
+
+/* Ensure proper color inheritance for all elements */
+.weather-card * {
+  color: inherit;
+}
+
+.weather-card .text-muted-foreground {
+  color: hsl(var(--muted-foreground));
+}
+
+.weather-card .text-primary {
+  color: hsl(var(--primary));
+}
+
+.weather-card .text-primary-foreground {
+  color: hsl(var(--primary-foreground));
+}
+
+/* Fix for chart colors */
+.recharts-wrapper {
+  color: hsl(var(--foreground));
+}
+
+.recharts-cartesian-axis-tick-value {
+  fill: hsl(var(--muted-foreground));
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: hsl(var(--border));
+}
+
+/* Custom theme support */
+.theme-custom {
+  /* Custom theme variables will be set dynamically via JavaScript */
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+  .weather-card {
+    margin: 0.5rem;
+  }
+
+  .weather-background {
+    padding: 1rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .weather-card {
+    border-width: 2px;
+  }
+
+  .weather-icon {
+    filter: contrast(1.2);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .weather-card-hover:hover {
+    transform: none;
+  }
+
+  .animate-fade-in {
+    animation: none;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .weather-background {
+    background: white !important;
+    color: black !important;
+  }
+
+  .weather-card {
+    border: 1px solid black !important;
+    background: white !important;
+    color: black !important;
+  }
+}
