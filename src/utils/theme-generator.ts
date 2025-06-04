@@ -1,8 +1,3 @@
-/**
- * Automatic theme generation utilities
- * Creates harmonious color schemes from base colors
- */
-
 import { ThemeValidator } from "./theme-validator"
 
 export interface GeneratedTheme {

@@ -1,7 +1,3 @@
-/**
- * Generic cache service implementation
- * Provides in-memory caching with TTL support
- */
 import type { ICacheService } from "../interfaces/weather-interfaces"
 
 interface CacheEntry<T> {

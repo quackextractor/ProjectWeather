@@ -8,8 +8,8 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Play, CheckCircle, XCircle, Clock, BarChart3, FileText, RefreshCw, Download } from "lucide-react"
-import { TestSuite } from "@/lib/testing/test-suite"
-import type { TestResult, TestSuiteResult } from "@/lib/testing/types"
+import { TestSuite } from "@/lib/test-suite"
+import type { TestResult, TestSuiteResult } from "@/lib/types"
 
 export function TestRunner() {
   const [isRunning, setIsRunning] = useState(false)

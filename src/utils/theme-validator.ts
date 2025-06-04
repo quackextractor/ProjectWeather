@@ -1,8 +1,3 @@
-/**
- * Theme validation utilities
- * Ensures theme colors are valid and properly formatted
- */
-
 export interface ThemeValidationResult {
   isValid: boolean
   errors: string[]

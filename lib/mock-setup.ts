@@ -1,4 +1,3 @@
-// Mock setup for browser environment testing
 import { jest } from "@jest/globals"
 
 export function setupTestMocks() {

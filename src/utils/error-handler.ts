@@ -1,7 +1,3 @@
-/**
- * Comprehensive error handling system
- * Provides custom error types and centralized error management
- */
 import type { IErrorHandler } from "../interfaces/weather-interfaces"
 
 export class ApiError extends Error {

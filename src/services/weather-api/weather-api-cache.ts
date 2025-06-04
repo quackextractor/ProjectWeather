@@ -1,6 +1,3 @@
-/**
- * Weather API caching layer
- */
 import type { ICurrentWeather, IWeatherForecast, ILocation, ICacheService } from "../../interfaces/weather-interfaces"
 import { MemoryCacheService } from "../cache-service"
 import { appConfig } from "../../config/app-config"

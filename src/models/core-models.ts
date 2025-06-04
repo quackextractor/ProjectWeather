@@ -1,7 +1,3 @@
-/**
- * Core domain models for location and weather conditions
- * Provides foundational data structures used throughout the application
- */
 import type { ILocation, IWeatherCondition } from "../interfaces/weather-interfaces"
 
 export class Location implements ILocation {

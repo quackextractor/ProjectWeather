@@ -1,6 +1,3 @@
-/**
- * Weather API client for handling HTTP requests and retries
- */
 import { appConfig } from "../../config/app-config"
 import { ApiError, NetworkError } from "../../utils/error-handler"
 

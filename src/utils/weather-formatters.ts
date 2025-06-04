@@ -1,8 +1,3 @@
-/**
- * Weather-specific formatting utilities
- * Provides consistent formatting for weather measurements
- */
-
 export class TemperatureFormatter {
   public static format(temperature: number, unit: "celsius" | "fahrenheit" = "celsius", precision = 0): string {
     let temp = temperature

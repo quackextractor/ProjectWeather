@@ -54,8 +54,8 @@ A modern, feature-rich weather application built with Next.js, TypeScript, and T
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd weather-app
+   git clone https://github.com/quackextractor/ProjectWeather.git
+   cd ProjectWeather
    ```
 
 2. **Install dependencies**

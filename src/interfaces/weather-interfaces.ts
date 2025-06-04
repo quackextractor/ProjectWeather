@@ -1,8 +1,3 @@
-/**
- * Core interfaces for the weather application
- * Defines contracts for all major components
- */
-
 export interface ILocation {
   readonly name: string
   readonly latitude: number

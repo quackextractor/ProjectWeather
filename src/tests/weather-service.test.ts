@@ -1,7 +1,3 @@
-/**
- * Unit tests for weather service
- * Comprehensive test coverage for all weather-related functionality
- */
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
 import { WeatherApiService } from "../services/weather-api-service"
 import { MemoryCacheService } from "../services/cache-service"
