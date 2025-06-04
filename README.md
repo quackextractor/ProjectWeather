@@ -47,7 +47,7 @@ A modern, feature-rich weather application built with Next.js, TypeScript, and T
 
 ### Prerequisites
 - Node.js 18+ 
-- npm or yarn package manager
+- npm package manager
 - Modern web browser
 
 ### Installation
@@ -60,16 +60,12 @@ A modern, feature-rich weather application built with Next.js, TypeScript, and T
 
 2. **Install dependencies**
    ```bash
-   npm install
-   # or
-   yarn install
+   npm install --legacy-peer-deps
    ```
 
 3. **Start development server**
    ```bash
    npm run dev
-   # or
-   yarn dev
    ```
 
 4. **Open in browser**
