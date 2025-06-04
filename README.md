@@ -36,27 +36,6 @@ A modern, feature-rich weather application built with Next.js, TypeScript, and T
 - **Singleton Pattern**: Cache service implementation
 - **Strategy Pattern**: Different weather data formatting strategies
 
-### Project Structure
-```
-├── app/                    # Next.js App Router
-├── components/            # React components
-│   ├── ui/               # Reusable UI components
-│   ├── weather/          # Weather-specific components
-│   ├── theme/            # Theme management components
-│   └── test-suite/       # Testing components
-├── contexts/             # React contexts
-├── lib/                  # Utility libraries
-│   ├── testing/          # Test suites and utilities
-│   └── utils.ts          # Common utilities
-├── src/                  # Core application logic
-│   ├── config/           # Configuration files
-│   ├── interfaces/       # TypeScript interfaces
-│   ├── models/           # Data models
-│   ├── services/         # Business logic services
-│   └── utils/            # Utility functions
-└── public/               # Static assets
-```
-
 ### Core Interfaces
 - **IWeatherService**: Weather data retrieval interface
 - **ILocation**: Location data structure
