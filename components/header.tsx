@@ -4,7 +4,7 @@ import { Cloud, Settings, RefreshCw } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { SettingsDialog } from "@/components/settings-dialog"
-import { TestMenuItem } from "@/components/test-menu-item"
+import { TestMenuItem } from "@/components/test-suite/test-menu-item"
 import { useWeather } from "@/contexts/weather-context"
 import { useState } from "react"
 

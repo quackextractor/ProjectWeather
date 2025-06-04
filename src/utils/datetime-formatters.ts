@@ -1,3 +1,8 @@
+/**
+ * Date and time formatting utilities
+ * Provides consistent date/time formatting across the application
+ */
+
 export class DateTimeFormatter {
   public static formatTime(date: Date, format: "12h" | "24h" = "12h"): string {
     if (format === "24h") {

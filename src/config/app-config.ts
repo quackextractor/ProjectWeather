@@ -1,3 +1,7 @@
+/**
+ * Application configuration interface and implementation
+ * Provides centralized configuration management for the weather application
+ */
 export interface IAppConfig {
   readonly api: {
     readonly baseUrl: string

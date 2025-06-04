@@ -1,3 +1,7 @@
+/**
+ * Validation utilities for weather application
+ * Provides comprehensive input validation with detailed error messages
+ */
 import type { IValidator, ValidationResult, ILocation } from "../interfaces/weather-interfaces"
 
 export class LocationValidator implements IValidator<ILocation> {

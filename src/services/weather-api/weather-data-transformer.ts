@@ -1,3 +1,6 @@
+/**
+ * Weather data transformation utilities
+ */
 import type { ILocation, ICurrentWeather, IWeatherForecast } from "../../interfaces/weather-interfaces"
 import {
   CurrentWeather,

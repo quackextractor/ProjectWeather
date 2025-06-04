@@ -1,3 +1,7 @@
+/**
+ * Unit tests for formatting utilities
+ * Tests all formatting functions with various inputs
+ */
 import { describe, it, expect } from "vitest"
 import {
   TemperatureFormatter,

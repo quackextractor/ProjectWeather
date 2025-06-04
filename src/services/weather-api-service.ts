@@ -1,3 +1,6 @@
+/**
+ * Main Weather API service that orchestrates all weather-related operations
+ */
 import type {
   IWeatherService,
   ILocation,

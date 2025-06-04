@@ -1,3 +1,7 @@
+/**
+ * Notification service for weather alerts and updates
+ * Handles browser notifications with proper permission management
+ */
 import type { INotificationService } from "../interfaces/weather-interfaces"
 import { appConfig } from "../config/app-config"
 

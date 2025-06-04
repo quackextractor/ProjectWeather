@@ -1,3 +1,6 @@
+/**
+ * Weather API validation utilities
+ */
 import { ValidationError } from "../../utils/error-handler"
 
 export class WeatherApiValidator {

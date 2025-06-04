@@ -1,3 +1,7 @@
+/**
+ * Weather forecast domain models
+ * Provides weather data structures for current conditions and forecasts
+ */
 import type {
   ILocation,
   IWeatherCondition,

@@ -1,3 +1,6 @@
+/**
+ * Weather API data serialization and deserialization utilities
+ */
 import type { ICurrentWeather, IWeatherForecast, ILocation } from "../../interfaces/weather-interfaces"
 import {
   CurrentWeather,

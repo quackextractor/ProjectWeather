@@ -9,8 +9,8 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Palette, Save, RotateCcw, Eye, Wand2, AlertTriangle, CheckCircle } from "lucide-react"
 import { useTheme, type CustomTheme } from "@/contexts/theme-context"
 import { ThemePreview } from "@/components/theme-preview"
-import { ThemeValidator } from "@/utils/theme-validator"
-import { ThemeGenerator } from "@/utils/theme-generator"
+import { ThemeValidator } from "@/src/utils/theme-validator"
+import { ThemeGenerator } from "@/src/utils/theme-generator"
 import { ColorGroupEditor } from "@/components/color-group-editor"
 
 interface ThemeEditorProps {
