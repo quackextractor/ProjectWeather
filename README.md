@@ -2,6 +2,9 @@
 
 A modern, feature-rich weather application built with Next.js, TypeScript, and Tailwind CSS. This application provides comprehensive weather information with customizable themes, detailed forecasts, and a robust testing suite.
 
+## Disclaimer: 
+the components under `\components\ui` were not made by me. Refer to [Radix Primitives](https://www.radix-ui.com/primitives)
+
 ## Features
 
 ### Core Weather Features
