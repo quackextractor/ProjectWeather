@@ -4,11 +4,11 @@
 import type { ICurrentWeather, IWeatherForecast, ILocation } from "../../interfaces/weather-interfaces"
 import {
   CurrentWeather,
-  WeatherCondition,
   WeatherForecast,
   HourlyWeather,
   DailyWeather,
 } from "../../models/forecast-models"
+import { WeatherCondition } from "../../models/core-models"
 
 export class WeatherApiSerializer {
   public deserializeCurrentWeather(data: any, location: ILocation): ICurrentWeather {

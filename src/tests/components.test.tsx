@@ -1,0 +1,166 @@
+import React from "react"
+import { describe, it, expect, vi } from "vitest"
+import { render, screen, fireEvent } from "@testing-library/react"
+import { ErrorMessage } from "@/components/error-message"
+import { LoadingSpinner } from "@/components/loading-spinner"
+import { ApiCredits } from "@/components/api-credits"
+import { Header } from "@/components/header"
+import { ThemeToggle } from "@/components/theme-toggle"
+import { CurrentWeather } from "@/components/current-weather"
+import { DailyForecast } from "@/components/daily-forecast"
+import { HourlyForecast } from "@/components/hourly-forecast"
+
+// Mock contexts
+vi.mock("@/contexts/theme-context", () => ({
+  useTheme: () => ({
+    theme: "light",
+    resolvedTheme: "light",
+    themePreset: "default",
+    temperatureUnit: "celsius",
+    setTheme: vi.fn(),
+    setThemePreset: vi.fn(),
+    setTemperatureUnit: vi.fn(),
+  }),
+}))
+
+vi.mock("@/contexts/weather-context", () => ({
+  useWeather: () => ({
+    currentWeather: {
+      temperature: 22,
+      feelsLike: 23,
+      humidity: 50,
+      pressure: 1013,
+      visibility: 10,
+      windSpeed: 10,
+      windDirection: 180,
+      uvIndex: 4,
+      weatherCode: 1,
+      description: "Mainly clear",
+      timestamp: new Date(),
+      temperatureMax: 25,
+      temperatureMin: 15,
+    },
+    forecast: {
+      daily: [
+        {
+          date: new Date(),
+          temperatureMax: 25,
+          temperatureMin: 15,
+          feelsLikeMax: 25,
+          feelsLikeMin: 15,
+          weatherCode: 1,
+          description: "Mainly clear",
+          precipitationSum: 0,
+          precipitationProbability: 0,
+          windSpeed: 10,
+          windDirection: 180,
+          uvIndex: 4,
+        },
+      ],
+      hourly: [
+        {
+          time: new Date(),
+          temperature: 20,
+          feelsLike: 20,
+          humidity: 50,
+          precipitationProbability: 10,
+          weatherCode: 1,
+          windSpeed: 5,
+          windDirection: 180,
+          pressure: 1013,
+          uvIndex: 1,
+        },
+      ],
+    },
+    location: {
+      name: "Prague",
+      country: "Czech Republic",
+      region: "Prague",
+      latitude: 50.0755,
+      longitude: 14.4378,
+    },
+    isLoading: false,
+    error: null,
+    searchLocation: vi.fn(),
+    setLocation: vi.fn(),
+    refreshWeather: vi.fn(),
+    apiCallsToday: 5,
+  }),
+}))
+
+// Mock Recharts ResponsiveContainer to avoid layout issues in testing
+vi.mock("recharts", async () => {
+  const actual: any = await vi.importActual("recharts")
+  return {
+    ...actual,
+    ResponsiveContainer: ({ children }: any) => <div data-testid="responsive-container">{children}</div>,
+  }
+})
+
+describe("ErrorMessage Component", () => {
+  it("renders error message correctly", () => {
+    render(<ErrorMessage message="An error occurred" />)
+    expect(screen.getByText("An error occurred")).toBeInTheDocument()
+  })
+
+  it("calls onRetry callback when clicked", () => {
+    const handleRetry = vi.fn()
+    render(<ErrorMessage message="An error occurred" onRetry={handleRetry} />)
+    const button = screen.getByRole("button", { name: /try again/i })
+    fireEvent.click(button)
+    expect(handleRetry).toHaveBeenCalledOnce()
+  })
+})
+
+describe("LoadingSpinner Component", () => {
+  it("renders spinner without crashing", () => {
+    const { container } = render(<LoadingSpinner />)
+    expect(container.firstChild).toBeInTheDocument()
+  })
+})
+
+describe("ApiCredits Component", () => {
+  it("renders usage info correctly", () => {
+    render(<ApiCredits />)
+    expect(screen.getByText(/5 \/ 10,000/)).toBeInTheDocument()
+    expect(screen.getByText("Powered by Open-Meteo API")).toBeInTheDocument()
+  })
+})
+
+describe("Header Component", () => {
+  it("renders site title", () => {
+    const mockOpenTestSuite = vi.fn()
+    render(<Header onOpenTestSuite={mockOpenTestSuite} />)
+    expect(screen.getByText("Weather App")).toBeInTheDocument()
+  })
+})
+
+describe("ThemeToggle Component", () => {
+  it("renders light and dark theme control", () => {
+    const { container } = render(<ThemeToggle />)
+    expect(container).toBeInTheDocument()
+  })
+})
+
+describe("CurrentWeather Component", () => {
+  it("renders weather metrics like temperature and condition description", () => {
+    render(<CurrentWeather selectedDayIndex={0} />)
+    expect(screen.getByText("22°C")).toBeInTheDocument()
+    expect(screen.getByText("Mainly clear")).toBeInTheDocument()
+  })
+})
+
+describe("DailyForecast Component", () => {
+  it("renders list of forecast items", () => {
+    const handleDaySelect = vi.fn()
+    render(<DailyForecast selectedDayIndex={0} onDaySelect={handleDaySelect} />)
+    expect(screen.getByText("7-Day Forecast")).toBeInTheDocument()
+  })
+})
+
+describe("HourlyForecast Component", () => {
+  it("renders hourly forecast details", () => {
+    render(<HourlyForecast selectedDayIndex={0} />)
+    expect(screen.getByText(/Hourly Forecast/i)).toBeInTheDocument()
+  })
+})

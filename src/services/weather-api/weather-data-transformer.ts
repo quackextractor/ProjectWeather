@@ -4,11 +4,11 @@
 import type { ILocation, ICurrentWeather, IWeatherForecast } from "../../interfaces/weather-interfaces"
 import {
   CurrentWeather,
-  WeatherCondition,
   WeatherForecast,
   HourlyWeather,
   DailyWeather,
 } from "../../models/forecast-models"
+import { WeatherCondition } from "../../models/core-models"
 
 export class WeatherDataTransformer {
   public transformCurrentWeather(data: any, location: ILocation): ICurrentWeather {

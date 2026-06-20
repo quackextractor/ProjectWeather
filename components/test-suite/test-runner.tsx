@@ -113,7 +113,7 @@ export function TestRunner() {
           <CardContent className="text-center py-12">
             <FileText className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
             <h3 className="text-lg font-medium mb-2">No Test Results</h3>
-            <p className="text-muted-foreground mb-4">Click "Run Tests" to execute the test suite and view results.</p>
+            <p className="text-muted-foreground mb-4">Click &quot;Run Tests&quot; to execute the test suite and view results.</p>
             <Button onClick={runTests} className="flex items-center space-x-2">
               <Play className="h-4 w-4" />
               <span>Run Tests</span>

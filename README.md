@@ -1,5 +1,8 @@
 # Weather App - Advanced Weather Forecasting Application
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/quackextractor/ProjectWeather)
+
 A modern, feature-rich weather application built with Next.js, TypeScript, and Tailwind CSS. This application provides comprehensive weather information with customizable themes, detailed forecasts, and a robust testing suite.
 
 ## Disclaimer: 

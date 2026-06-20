@@ -18,6 +18,7 @@ export function LocationSearch() {
   const [geoLoading, setGeoLoading] = useState(false)
   const searchRef = useRef<HTMLDivElement>(null)
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedSearch = useCallback(
     debounce(async (searchQuery: string) => {
       if (searchQuery.length < 2) {

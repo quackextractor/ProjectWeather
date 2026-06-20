@@ -23,7 +23,7 @@ export function ApiCredits() {
       <CardContent className="space-y-4">
         <div className="space-y-2">
           <div className="flex justify-between text-sm">
-            <span>Today's Usage</span>
+            <span>Today&apos;s Usage</span>
             <span>
               {apiCallsToday} / {dailyLimit.toLocaleString()}
             </span>

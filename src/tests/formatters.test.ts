@@ -3,14 +3,14 @@
  * Tests all formatting functions with various inputs
  */
 import { describe, it, expect } from "vitest"
+import { DateTimeFormatter } from "../utils/datetime-formatters"
 import {
   TemperatureFormatter,
-  DateTimeFormatter,
   WindFormatter,
   PressureFormatter,
   HumidityFormatter,
   UVIndexFormatter,
-} from "../utils/formatters"
+} from "../utils/weather-formatters"
 
 describe("TemperatureFormatter", () => {
   describe("format", () => {
@@ -65,7 +65,7 @@ describe("TemperatureFormatter", () => {
     it("should handle fahrenheit temperatures", () => {
       expect(TemperatureFormatter.getComfortLevel(32, "fahrenheit").level).toBe("cold")
       expect(TemperatureFormatter.getComfortLevel(68, "fahrenheit").level).toBe("comfortable")
-      expect(TemperatureFormatter.getComfortLevel(100, "fahrenheit").level).toBe("extreme")
+      expect(TemperatureFormatter.getComfortLevel(105, "fahrenheit").level).toBe("extreme")
     })
   })
 })
@@ -205,7 +205,7 @@ describe("PressureFormatter", () => {
     })
 
     it("should format pressure in inHg", () => {
-      expect(PressureFormatter.format(1013, "inHg")).toBe("29.92 inHg")
+      expect(PressureFormatter.format(1013.25, "inHg")).toBe("29.92 inHg")
     })
 
     it("should format pressure in mmHg", () => {

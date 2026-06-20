@@ -5,7 +5,7 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
 import { WeatherApiService } from "../services/weather-api-service"
 import { MemoryCacheService } from "../services/cache-service"
-import { Location, WeatherCondition } from "../models/weather-models"
+import { Location, WeatherCondition } from "../models/core-models"
 import { ApiError, ValidationError } from "../utils/error-handler"
 
 // Mock fetch globally
@@ -392,7 +392,7 @@ describe("MemoryCacheService", () => {
   let cache: MemoryCacheService<string>
 
   beforeEach(() => {
-    cache = new MemoryCacheService(3, 1000) // Max 3 items, 1 second TTL
+    cache = new MemoryCacheService(30, 1000) // Max 3 items (under character-based sizing), 1 second TTL
   })
 
   it("should store and retrieve values", () => {
