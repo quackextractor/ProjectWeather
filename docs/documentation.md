@@ -45,3 +45,14 @@ Several underlying bugs and path issues were resolved to ensure compilation and 
 2. **Missing Exports in Forecast Models**: Resolved a circular/incorrect export where `WeatherCondition` was imported from `forecast-models.ts`. It is now imported from its true location: `core-models.ts`.
 3. **Memory Cache Sizing**: Updated the test eviction thresholds from `3` to `30` to correctly account for character-based item sizes rather than entry-based counts.
 4. **Physical Constants**: Adjusted temperature fahrenheit classification boundaries (e.g. using `105°F` instead of `100°F` for extreme heat) and standard pressure constants (e.g. `1013.25` hPa) to conform with physical formulas.
+
+---
+
+## 4. Privacy & GDPR Compliance
+
+To align the application with GDPR regulations and offer complete transparency regarding personal data handling:
+* **Privacy Notice Tab**: Integrated a dedicated **Privacy** tab into the Settings Dialog.
+* **Declarations Made**:
+  1. **Local Storage**: Explains the client-side use of `localStorage` for functional state/preference retention (`weather-location`, `weather-theme`, etc.), noting that no preferences are shared with any backend database.
+  2. **Third-Party Data Processing**: Discloses standard HTTP processing of user IP addresses and coordinates by the external **Open-Meteo API** to fetch weather conditions.
+  3. **Geolocation Consent**: Explicitly highlights that geolocation details are only accessed after obtaining consent via the browser's native Geolocation query trigger.

@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Created `src/tests/components.test.tsx` testing core UI components: Header, ErrorMessage, LoadingSpinner, ApiCredits, ThemeToggle, CurrentWeather, DailyForecast, and HourlyForecast.
 - Configured `vitest.config.ts` path aliases and testing configurations.
 - Configured automated test script in `package.json`.
+- Added a GDPR-compliant Privacy Notice tab in the Settings Dialog detailing local storage, geolocation consent, and Open-Meteo API data processing.
 
 ### Changed
 - Modernized project dependencies to secure versions.

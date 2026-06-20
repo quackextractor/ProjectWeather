@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Palette, Thermometer, SettingsIcon } from "lucide-react"
+import { Palette, Thermometer, SettingsIcon, Shield } from "lucide-react"
 import { useTheme } from "@/contexts/theme-context"
 import { CustomThemeManager } from "@/components/custom-theme-manager"
 
@@ -44,10 +44,11 @@ export function SettingsDialog({ open, onOpenChange }: SettingsDialogProps) {
         </DialogHeader>
 
         <Tabs defaultValue="themes" className="space-y-4">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="themes">Themes</TabsTrigger>
-            <TabsTrigger value="custom">Custom Themes</TabsTrigger>
+            <TabsTrigger value="custom">Custom</TabsTrigger>
             <TabsTrigger value="general">General</TabsTrigger>
+            <TabsTrigger value="privacy">Privacy</TabsTrigger>
           </TabsList>
 
           <TabsContent value="themes" className="space-y-4">
@@ -107,6 +108,44 @@ export function SettingsDialog({ open, onOpenChange }: SettingsDialogProps) {
                   </Label>
                 </div>
               </RadioGroup>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="privacy" className="space-y-4">
+            <div className="space-y-4">
+              <Label className="text-base font-medium flex items-center space-x-2">
+                <Shield className="h-4 w-4" />
+                <span>Privacy Notice</span>
+              </Label>
+              <div className="text-sm space-y-3 text-muted-foreground leading-relaxed">
+                <p>
+                  This application respects your privacy and is designed to process personal data strictly in
+                  compliance with the General Data Protection Regulation (GDPR).
+                </p>
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-foreground">1. Local Storage</h4>
+                  <p>
+                    Your configurations (active themes, temperature unit preferences, and the last searched location)
+                    are stored locally in your browser&apos;s <code>localStorage</code>. No preference data is transmitted
+                    to or stored on our servers.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-foreground">2. Third-Party Data Processing</h4>
+                  <p>
+                    Weather forecasting services and city search suggestions are powered by the external, public
+                    <strong> Open-Meteo API</strong>. When querying weather details, your location query or geographical coordinates
+                    and your IP address are sent directly from your browser to Open-Meteo to fulfill the request.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-foreground">3. Geolocation Consent</h4>
+                  <p>
+                    The application only accesses your precise device coordinates if you explicitly trigger the
+                    &quot;Current Location&quot; lookup and approve the browser&apos;s native location access request.
+                  </p>
+                </div>
+              </div>
             </div>
           </TabsContent>
         </Tabs>
