@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.3] - 2026-06-21
+
+### Added
+- Integrated Github icon next to repository link in site footer.
+
+### Changed
+- Renamed application to "quackextractor's weather app" and updated description to "Customizable weather forecasting" in Header component.
+
 ## [1.1.2] - 2026-06-21
 
 ### Changed
