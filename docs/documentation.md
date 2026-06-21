@@ -72,5 +72,6 @@ To enhance usability on mobile viewports and ensure the robustness of the user s
   * **ColorGroupEditor Tests**: Validates correct rendering of primary, secondary, accent, base, and weather-specific editing tabs.
   * **SettingsDialog Tests**: Asserts correct render lifecycle, settings context headers, and active tab interfaces.
 * **Footer & Privacy Page Integration**:
-  * **Global Footer**: Added a site-wide footer to `app/page.tsx` containing a link to the GitHub repository and a clickable "Privacy Policy" button. Clicking this button directly opens the `SettingsDialog` focused on the Privacy tab.
+  * **Global Footer**: Added a site-wide footer to `app/page.tsx` containing a link to the GitHub repository (with a GitHub icon) and a clickable "Privacy Policy" button. Clicking this button directly opens the `SettingsDialog` focused on the Privacy tab.
   * **Open-Meteo Privacy Link**: Integrated a direct hyperlink pointing to Open-Meteo's terms and privacy policy (`https://open-meteo.com/en/terms`) within the settings dialog's GDPR data processing clause.
+  * **Application Renaming**: Updated the Header component to rename the website to "quackextractor's weather app" and modified its description to "Customizable weather forecasting".
