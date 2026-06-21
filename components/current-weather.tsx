@@ -164,9 +164,9 @@ export function CurrentWeather({ selectedDayIndex }: CurrentWeatherProps) {
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
-            <div className="text-5xl font-bold">{formatTemperature(weatherData.temperature, temperatureUnit)}</div>
+            <div className="text-4xl sm:text-5xl font-bold">{formatTemperature(weatherData.temperature, temperatureUnit)}</div>
             <div className="text-lg text-muted-foreground capitalize">{weatherData.description}</div>
             <div className="text-sm text-muted-foreground mt-1">
               H: {formatTemperature(weatherData.temperatureMax, temperatureUnit)} L:{" "}

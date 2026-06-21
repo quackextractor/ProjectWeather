@@ -56,3 +56,21 @@ To align the application with GDPR regulations and offer complete transparency r
   1. **Local Storage**: Explains the client-side use of `localStorage` for functional state/preference retention (`weather-location`, `weather-theme`, etc.), noting that no preferences are shared with any backend database.
   2. **Third-Party Data Processing**: Discloses standard HTTP processing of user IP addresses and coordinates by the external **Open-Meteo API** to fetch weather conditions.
   3. **Geolocation Consent**: Explicitly highlights that geolocation details are only accessed after obtaining consent via the browser's native Geolocation query trigger.
+
+---
+
+## 5. Responsive Layout Improvements & Expanded Test Coverage
+
+To enhance usability on mobile viewports and ensure the robustness of the user settings interface:
+* **Layout and Spacing Adaptations**:
+  * **Margins and Padding**: Reduced card margins to `0.25rem` and background padding to `0.5rem` on viewport sizes smaller than `768px` via updated global CSS media queries.
+  * **Header Component**: Transitioned header items from a horizontal flex layout to a stacked vertical alignment (`flex-col items-start`) on mobile, while preserving horizontal alignment (`md:flex-row md:items-center`) on larger displays.
+  * **Current Weather Card**: Stacked weather details and key values vertically (`flex-col`) on small devices and scaled down temperature typography sizing to `text-4xl` for optimal display.
+  * **Theme Picker Tabs**: Reconfigured color editing tabs list into a scrollable horizontal flex container (`overflow-x-auto scrollbar-thin`) to prevent text overlap on compact viewports.
+  * **Settings Dialog**: Allowed dialog contents to expand up to `95vw` on mobile to fit text cleanly, with padding and heights dynamically adjusted.
+* **Component Testing Extension**:
+  * **ColorGroupEditor Tests**: Validates correct rendering of primary, secondary, accent, base, and weather-specific editing tabs.
+  * **SettingsDialog Tests**: Asserts correct render lifecycle, settings context headers, and active tab interfaces.
+* **Footer & Privacy Page Integration**:
+  * **Global Footer**: Added a site-wide footer to `app/page.tsx` containing a link to the GitHub repository and a clickable "Privacy Policy" button. Clicking this button directly opens the `SettingsDialog` focused on the Privacy tab.
+  * **Open-Meteo Privacy Link**: Integrated a direct hyperlink pointing to Open-Meteo's terms and privacy policy (`https://open-meteo.com/en/terms`) within the settings dialog's GDPR data processing clause.

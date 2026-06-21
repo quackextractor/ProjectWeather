@@ -270,13 +270,8 @@
 
 /* Responsive design improvements */
 @media (max-width: 768px) {
-  .weather-card {
-    margin: 0.5rem;
-  }
-
-  .weather-background {
-    padding: 1rem;
-  }
+  .weather-card { margin: 0.25rem; }
+  .weather-background { padding: 0.5rem; }
 }
 
 /* High contrast mode support */

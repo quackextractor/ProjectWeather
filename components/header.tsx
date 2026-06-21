@@ -10,14 +10,15 @@ import { useState } from "react"
 
 interface HeaderProps {
   onOpenTestSuite?: () => void
+  onOpenSettings?: (tab?: string) => void
 }
 
-export function Header({ onOpenTestSuite }: HeaderProps) {
+export function Header({ onOpenTestSuite, onOpenSettings }: HeaderProps) {
   const { refreshWeather, isLoading } = useWeather()
   const [showSettings, setShowSettings] = useState(false)
 
   return (
-    <header className="flex items-center justify-between mb-8">
+    <header className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 gap-4">
       <div className="flex items-center space-x-3">
         <div className="p-2 bg-primary rounded-lg">
           <Cloud className="h-8 w-8 text-primary-foreground" />
@@ -35,13 +36,13 @@ export function Header({ onOpenTestSuite }: HeaderProps) {
 
         {onOpenTestSuite && <TestMenuItem onOpenTestSuite={onOpenTestSuite} />}
 
-        <Button variant="outline" size="icon" onClick={() => setShowSettings(true)}>
+        <Button variant="outline" size="icon" onClick={() => onOpenSettings ? onOpenSettings("themes") : setShowSettings(true)}>
           <Settings className="h-4 w-4" />
         </Button>
 
         <ThemeToggle />
 
-        <SettingsDialog open={showSettings} onOpenChange={setShowSettings} />
+        {!onOpenSettings && <SettingsDialog open={showSettings} onOpenChange={setShowSettings} />}
       </div>
     </header>
   )

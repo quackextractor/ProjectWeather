@@ -9,6 +9,8 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { CurrentWeather } from "@/components/current-weather"
 import { DailyForecast } from "@/components/daily-forecast"
 import { HourlyForecast } from "@/components/hourly-forecast"
+import { ColorGroupEditor } from "@/components/color-group-editor"
+import { SettingsDialog } from "@/components/settings-dialog"
 
 // Mock contexts
 vi.mock("@/contexts/theme-context", () => ({
@@ -20,6 +22,11 @@ vi.mock("@/contexts/theme-context", () => ({
     setTheme: vi.fn(),
     setThemePreset: vi.fn(),
     setTemperatureUnit: vi.fn(),
+    customThemes: [],
+    activeCustomTheme: null,
+    applyCustomTheme: vi.fn(),
+    deleteCustomTheme: vi.fn(),
+    resetToPresetTheme: vi.fn(),
   }),
 }))
 
@@ -162,5 +169,43 @@ describe("HourlyForecast Component", () => {
   it("renders hourly forecast details", () => {
     render(<HourlyForecast selectedDayIndex={0} />)
     expect(screen.getByText(/Hourly Forecast/i)).toBeInTheDocument()
+  })
+})
+
+describe("ColorGroupEditor Component", () => {
+  it("renders tab trigger list", () => {
+    const mockColors = {
+      primary: "221.2 83.2% 53.3%",
+      primaryForeground: "210 40% 98%",
+      secondary: "210 40% 96%",
+      secondaryForeground: "222.2 84% 4.9%",
+      accent: "210 40% 96%",
+      accentForeground: "222.2 84% 4.9%",
+      background: "0 0% 100%",
+      foreground: "222.2 84% 4.9%",
+      card: "0 0% 100%",
+      cardForeground: "222.2 84% 4.9%",
+      muted: "210 40% 96%",
+      mutedForeground: "215.4 16.3% 46.9%",
+      border: "214.3 31.8% 91.4%",
+      weatherIcon: "221.2 83.2% 53.3%",
+      weatherBgFrom: "214 100% 97%",
+      weatherBgTo: "221 83% 95%",
+      weatherCardAccent: "210 40% 96%",
+    }
+    render(<ColorGroupEditor colors={mockColors} onColorChange={vi.fn()} />)
+    expect(screen.getByRole("tab", { name: "Primary" })).toBeInTheDocument()
+    expect(screen.getByRole("tab", { name: "Secondary" })).toBeInTheDocument()
+    expect(screen.getByRole("tab", { name: "Accent" })).toBeInTheDocument()
+    expect(screen.getByRole("tab", { name: "Base" })).toBeInTheDocument()
+    expect(screen.getByRole("tab", { name: "Weather" })).toBeInTheDocument()
+  })
+})
+
+describe("SettingsDialog Component", () => {
+  it("renders when open is true", () => {
+    render(<SettingsDialog open={true} onOpenChange={vi.fn()} />)
+    expect(screen.getByText("Settings")).toBeInTheDocument()
+    expect(screen.getByRole("tab", { name: "Themes" })).toBeInTheDocument()
   })
 })

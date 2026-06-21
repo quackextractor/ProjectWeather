@@ -14,12 +14,20 @@ import { LoadingSpinner } from "@/components/loading-spinner"
 import { ErrorMessage } from "@/components/error-message"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
+import { SettingsDialog } from "@/components/settings-dialog"
 
 export default function WeatherApp() {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [selectedDayIndex, setSelectedDayIndex] = useState(0) // Default to today (index 0)
   const [showTestSuite, setShowTestSuite] = useState(false)
+  const [showSettings, setShowSettings] = useState(false)
+  const [settingsTab, setSettingsTab] = useState("themes")
+
+  const openSettings = (tab: string = "themes") => {
+    setSettingsTab(tab)
+    setShowSettings(true)
+  }
 
   useEffect(() => {
     // Simulate initial loading
@@ -51,7 +59,7 @@ export default function WeatherApp() {
       <WeatherProvider>
         <div className="min-h-screen weather-background">
           <div className="container mx-auto px-4 py-6 max-w-6xl">
-            <Header onOpenTestSuite={() => setShowTestSuite(true)} />
+            <Header onOpenTestSuite={() => setShowTestSuite(true)} onOpenSettings={openSettings} />
 
             {showTestSuite ? (
               <div className="space-y-6">
@@ -85,6 +93,29 @@ export default function WeatherApp() {
                 </div>
               </div>
             )}
+
+            <footer className="mt-12 py-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+              <div>
+                <a
+                  href="https://github.com/quackextractor/ProjectWeather"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline font-medium"
+                >
+                  GitHub Repository
+                </a>
+              </div>
+              <div className="flex items-center space-x-4">
+                <button
+                  onClick={() => openSettings("privacy")}
+                  className="hover:underline focus:outline-none cursor-pointer"
+                >
+                  Privacy Policy
+                </button>
+              </div>
+            </footer>
+
+            <SettingsDialog open={showSettings} onOpenChange={setShowSettings} defaultTab={settingsTab} />
           </div>
         </div>
       </WeatherProvider>

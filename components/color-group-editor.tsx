@@ -58,7 +58,7 @@ export function ColorGroupEditor({ colors, onColorChange }: ColorGroupEditorProp
 
   return (
     <Tabs defaultValue="primary" className="space-y-4">
-      <TabsList className="grid w-full grid-cols-5">
+      <TabsList className="flex w-full overflow-x-auto sm:grid sm:grid-cols-5 scrollbar-thin">
         <TabsTrigger value="primary">Primary</TabsTrigger>
         <TabsTrigger value="secondary">Secondary</TabsTrigger>
         <TabsTrigger value="accent">Accent</TabsTrigger>

@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
@@ -12,11 +13,20 @@ import { CustomThemeManager } from "@/components/custom-theme-manager"
 interface SettingsDialogProps {
   open: boolean
   onOpenChange: (open: boolean) => void
+  defaultTab?: string
 }
 
-export function SettingsDialog({ open, onOpenChange }: SettingsDialogProps) {
+export function SettingsDialog({ open, onOpenChange, defaultTab = "themes" }: SettingsDialogProps) {
   const { themePreset, setThemePreset, temperatureUnit, setTemperatureUnit, activeCustomTheme, resetToPresetTheme } =
     useTheme()
+
+  const [activeTab, setActiveTab] = useState(defaultTab)
+
+  useEffect(() => {
+    if (open) {
+      setActiveTab(defaultTab)
+    }
+  }, [open, defaultTab])
 
   const themePresets = [
     { id: "default", name: "Default", description: "Classic blue theme" },
@@ -34,7 +44,7 @@ export function SettingsDialog({ open, onOpenChange }: SettingsDialogProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[600px] max-h-[80vh] overflow-y-auto">
+      <DialogContent className="w-[95vw] sm:w-full sm:max-w-[600px] max-h-[85vh] overflow-y-auto p-4 sm:p-6">
         <DialogHeader>
           <DialogTitle className="flex items-center space-x-2">
             <SettingsIcon className="h-5 w-5" />
@@ -43,7 +53,7 @@ export function SettingsDialog({ open, onOpenChange }: SettingsDialogProps) {
           <DialogDescription>Customize your weather app experience</DialogDescription>
         </DialogHeader>
 
-        <Tabs defaultValue="themes" className="space-y-4">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4">
           <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="themes">Themes</TabsTrigger>
             <TabsTrigger value="custom">Custom</TabsTrigger>
@@ -135,7 +145,16 @@ export function SettingsDialog({ open, onOpenChange }: SettingsDialogProps) {
                   <p>
                     Weather forecasting services and city search suggestions are powered by the external, public
                     <strong> Open-Meteo API</strong>. When querying weather details, your location query or geographical coordinates
-                    and your IP address are sent directly from your browser to Open-Meteo to fulfill the request.
+                    and your IP address are sent directly from your browser to Open-Meteo to fulfill the request. For more details on data usage, please review the{" "}
+                    <a
+                      href="https://open-meteo.com/en/terms"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline font-medium"
+                    >
+                      Open-Meteo Privacy Policy
+                    </a>
+                    .
                   </p>
                 </div>
                 <div className="space-y-2">

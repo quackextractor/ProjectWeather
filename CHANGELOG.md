@@ -5,6 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.2] - 2026-06-21
+
+### Changed
+- Replaced the copyright notice in the site footer with a link directly to the GitHub repository.
+
+## [1.1.1] - 2026-06-21
+
+### Added
+- Integrated a site-wide footer linking directly to the Settings Privacy Policy tab.
+- Referenced Open-Meteo's terms and privacy policy link within the Settings Privacy Notice.
+
+### Changed
+- Refactored settings dialog state management to allow opening the dialog to a specific tab.
+
+## [1.1.0] - 2026-06-21
+
+### Added
+- Added comprehensive Vitest unit tests in `src/tests/components.test.tsx` for `ColorGroupEditor` and `SettingsDialog`.
+
+### Changed
+- Refactored `app/globals.css` media query for mobile screens to reduce margins and padding.
+- Refactored `Header` component layout to flex stack vertically on mobile screens.
+- Refactored `CurrentWeather` layout to flex stack vertically on mobile and adjusted temperature font size.
+- Changed `ColorGroupEditor` tab list layout to enable horizontal scrolling on small screens.
+- Redesigned `SettingsDialog` to scale to mobile viewport widths, adjusted padding and max-height constraints.
+
 ## [1.0.0] - 2026-06-20
 
 ### Added
