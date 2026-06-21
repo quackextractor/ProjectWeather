@@ -24,8 +24,8 @@ export function Header({ onOpenTestSuite, onOpenSettings }: HeaderProps) {
           <Cloud className="h-8 w-8 text-primary-foreground" />
         </div>
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Weather App</h1>
-          <p className="text-muted-foreground">Simple weather forecasting</p>
+          <h1 className="text-3xl font-bold text-foreground">quackextractor&apos;s weather app</h1>
+          <p className="text-muted-foreground">Customizable weather forecasting</p>
         </div>
       </div>
 

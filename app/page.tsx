@@ -13,7 +13,7 @@ import { TestRunner } from "@/components/test-suite/test-runner"
 import { LoadingSpinner } from "@/components/loading-spinner"
 import { ErrorMessage } from "@/components/error-message"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, Github } from "lucide-react"
 import { SettingsDialog } from "@/components/settings-dialog"
 
 export default function WeatherApp() {
@@ -100,8 +100,9 @@ export default function WeatherApp() {
                   href="https://github.com/quackextractor/ProjectWeather"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:underline font-medium"
+                  className="hover:underline font-medium flex items-center gap-1.5"
                 >
+                  <Github className="h-4 w-4" />
                   GitHub Repository
                 </a>
               </div>

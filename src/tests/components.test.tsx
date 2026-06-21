@@ -138,7 +138,7 @@ describe("Header Component", () => {
   it("renders site title", () => {
     const mockOpenTestSuite = vi.fn()
     render(<Header onOpenTestSuite={mockOpenTestSuite} />)
-    expect(screen.getByText("Weather App")).toBeInTheDocument()
+    expect(screen.getByText("quackextractor's weather app")).toBeInTheDocument()
   })
 })
 
