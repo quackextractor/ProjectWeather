@@ -27,5 +27,5 @@ yarn-error.log*
 /.idea
 /.vs
 next-env.d.ts
-docs/review.md
-docs/todo.md
+review.md
+todo.md
